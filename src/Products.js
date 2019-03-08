@@ -1,22 +1,98 @@
 import React, { Component } from 'react';
-import ProductList from "./products.json";
+//import ProductList from "./products.json";
 import { Jumbotron} from 'reactstrap';
 import Product from  './Product';
 
+
+let listOfProducts =  [
+  {
+    "name": "Product1",
+    "price":3086.40,
+    "description": "lajsd;ljkdflkjsdfjdf;jfkjdajz;jl",
+},
+{
+    "name": "Product2",
+    "price":3086.40,
+    "description": "lajsd;ljkdflkjsdfjdf;jfkjdajz;jl"
+    
+},
+{
+    "name": "Product3",
+    "price":3086.40,
+    "description": "lajsd;ljkdflkjsdfjdf;jfkjdajz;jl"
+},
+{
+    "name": "Product4",
+    "price":3086.40,
+    "description": "lajsd;ljkdflkjsdfjdf;jfkjdajz;jl"
+},
+{
+    "name": "Product5",
+    "price":3086.40,
+    "description": "lajsd;ljkdflkjsdfjdf;jfkjdajz;jl"
+},
+{
+    "name": "Product6",
+    "price":3086.40,
+    "description": "lajsd;ljkdflkjsdfjdf;jfkjdajz;jl"
+},
+{
+    "name": "Product7",
+    "price":3086.40,
+    "description": "lajsd;ljkdflkjsdfjdf;jfkjdajz;jl"
+},
+{
+    "name": "Product8",
+    "price":3086.40,
+    "description": "lajsd;ljkdflkjsdfjdf;jfkjdajz;jl"
+}
+];
 export default class Products extends Component {
+
+constructor (props){
+    super(props);
+    this.state={
+      productsList: {
+        productName:"",
+        productPrice:0,
+        productDescription:"",
+      },
+    }
+
+
+  };
+  
   render() {
-    return (
-      <div>
-          <Jumbotron>
-          <h1 className="display-3">Top Products</h1>
-          <h1>{ProductList.name}</h1>
-          <Product></Product>
-
-
-
-          </Jumbotron>
+ 
+    var ProductCardInfo =listOfProducts.map((detail)=>{
+      let  productName =  detail.name;
+      let  productPrice = detail.price;
+      let  productDesc = detail.description;
+      return(
         
-      </div>
+           <Product 
+              productName={productName} 
+              productPrice={productPrice} 
+              productDesc={productDesc} 
+              onClick={this.handleClick}/>
+        
+      )
+    }
+    
     )
+    
+      return ( 
+        <div>
+         
+          <h1>Top Products</h1>
+         
+            {ProductCardInfo}
+  
+         
+        </div>
+      )
+
+        
+      
   }
 }

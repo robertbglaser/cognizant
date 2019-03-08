@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import ProductList from "./products.json";
 import { Card, CardText, CardBody, CardTitle, CardGroup, Button, Row, Col}  from 'reactstrap';
+import{BrowserRouter as Router} from "react-router-dom";
 
 export default class Product extends Component {
 
@@ -44,7 +45,7 @@ export default class Product extends Component {
                 <br/>
                 <h5> {this.props.productDesc} </h5>
               </Row>
-              <Button size="sm" color="primary" onClick={this.handleSubmit}>Add to Cart</Button>
+              <Button size="sm" type="submit" color="primary" onClick={this.handleSubmit}>Add to Cart</Button>
           </Card>
           </Col>
         </Row>

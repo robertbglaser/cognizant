@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import ProductList from "./products.json";
 import { Jumbotron} from 'reactstrap';
 import Product from  './Product';
+import {Redirect} from "react-router-dom";
 
 
 let listOfProducts =  [

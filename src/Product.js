@@ -15,21 +15,36 @@ export default class Product extends Component {
     }
   }
   handleClick =(event) =>{
+    event.preventDefault();
+    event.stopPropagation()
+   // var typedInput = event.target.value;
+    console.log("in handleClick, yo you yo ")
+    //this.setState({showList:true});
+  }
+  handleSubmit =(event) =>{
+    event.preventDefault();
+    event.stopPropagation()
     var typedInput = event.target.value;
-    console.log("in handleClick, yo you yo ", typedInput)
+    console.log("in handleSubmit yo you yo ", typedInput)
     //this.setState({showList:true});
   }
   render() {
     return (
-      <div onClick={this.handleClick}>
+      <div >
         <Row> 
         <Col sm="4"> 
-          <Card outline body color="danger"> 
+          <Card outline body color="danger" onClick={this.handleClick}> 
              <CardBody> 
                  <CardTitle >{this.props.productName} </CardTitle> 
               </CardBody>
-              <Row></Row>
-              <Button size="sm" color="primary">Add to Cart</Button>
+              <Row>
+                <h5>{this.props.productName}</h5>
+                <br/>
+                <h6>"$"{this.props.productPrice}</h6>
+                <br/>
+                <h5> {this.props.productDesc} </h5>
+              </Row>
+              <Button size="sm" color="primary" onClick={this.handleSubmit}>Add to Cart</Button>
           </Card>
           </Col>
         </Row>

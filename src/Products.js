@@ -74,7 +74,7 @@ constructor (props){
               productName={productName} 
               productPrice={productPrice} 
               productDesc={productDesc} 
-              onClick={this.handleClick}/>
+              />
         
       )
     }
